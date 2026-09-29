@@ -35,13 +35,13 @@ int main(){
         amt += tea*qty;
             break;
             case 0:
-
+        choice = 0;
             break;
             default:
         printf("invalid input\n");
 
         }
-    }while(choice != 0);
+    }while(choice);
 
         printf("your bill is %d rs.\n",amt);
         printf("Pay amount : ");
