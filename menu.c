@@ -46,8 +46,7 @@ int main(){
         printf("your bill is %d rs.\n",amt);
         printf("Pay amount : ");
         scanf("%d",&paid);
-    if(paid == amt){
-        }else if(paid>amt){
+    if(paid>amt){
         amt=paid-amt;
         printf("Return amount : %d\n",amt);
             }else{
