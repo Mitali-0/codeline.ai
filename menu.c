@@ -1,18 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
-    int choice,qty,amt=0,paid,dosa=50,samosa=30,tea=10;
-        do{
-        printf("*****MENU*****\n");
+void menu(){
+    int dosa=50,samosa=30,tea=10;
+    printf("*****MENU*****\n");
         printf("1. Dosa     %d.00\n",dosa);
         printf("2. samosa   %d.00\n",samosa);
         printf("3. Tea      %d.00\n",tea);
         printf("0. Exit       \n");
-        printf("Enter your choice:");
-        scanf("%d",&choice);
-        printf("ok...\n");
-        switch(choice){
+}
+int choose(int choice,int amt){
+    int qty,dosa=50,samosa=30,tea=10;
+    switch(choice){
             case 1:
         printf("your choice is Dosa...\n");
         printf("How many plates:");
@@ -35,18 +34,24 @@ int main(){
         amt += tea*qty;
             break;
             case 0:
-        choice = 0;
+
             break;
             default:
         printf("invalid input\n");
 
         }
-    }while(choice);
+        return amt;
+}
 
-        printf("your bill is %d rs.\n",amt);
+
+void billing(int amt){
+    int paid;
+    printf("your bill is %d rs.\n",amt);
         printf("Pay amount : ");
         scanf("%d",&paid);
-    if(paid>amt){
+        if(paid==amt)
+            return;
+        else if(paid>amt){
         amt=paid-amt;
         printf("Return amount : %d\n",amt);
             }else{
@@ -56,11 +61,28 @@ int main(){
         printf("Pay amount : ");
         scanf("%d",&paid);
             }while(amt != paid);
+        return;
 
             }
-        printf("Payment Done successfully....\nvisit again....\n");
+}
+int main(){
+    int choice,amt=0;
+    do{
+        menu();
+        printf("Enter your choice:");
+        scanf("%d",&choice);
+        printf("ok...\n");
+        amt = choose(choice,amt);
+
+    }while(choice != 0);
+    billing(amt);
+    printf("Payment Done successfully....\nvisit again....\n");
     return 0;
 }
+
+
+
+
 
 
 
