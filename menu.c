@@ -28,7 +28,7 @@ int choose(int choice,int amt){
             break;
             case 3:
         printf("your choice is Tea...\n");
-        printf("How many plates:");
+        printf("How many cups:");
         scanf("%d",&qty);
         printf("ok...\n");
         amt += tea*qty;
